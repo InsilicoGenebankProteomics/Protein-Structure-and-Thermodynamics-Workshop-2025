@@ -1,0 +1,90 @@
+= Protein Structure and Thermodynamics Workshop
+:icons: font
+:source-highlighter: rouge
+:toc: left
+
+== Amino acids building blocks
+In our atomic models, black beads represent carbon atoms, blue nitrogen, red oxigen, yellow sulfur and small white beads represent hydrogen atoms.
+We start by building the most simple amino acid, glycine (G).
+image:: (picture of glyicine)
+
+All amino acids have an amino group and a caborxyl group.
+Between them, there could be a large chain of carbon atoms, but most amino acids in our proteins world have only one, the alpha carbon, and hence are named alpha amino acids.
+image:: (picture of glycine, a beta amino acid, and a gamma amino acid)
+
+These two groups and the alpha carbon form the main chain of an amino acid, but there can also be a lateral chain attached to the alpha carbon.
+There are 20 amino acids directly enconded by DNA codons, which differ by the lateral chain. Let us try to build an amino acid with our models.
+Since amino acids are chiral at the alpha carbon, be careful to build a left-hand, D enantiomer, like all our proteinogenic amino acids, not a right-hand, L enantiomer.
+image:: (picture of an alanine left-handed and right-handed)
+
+The peptide bond is formed between the carboxyl group of one amino acid with the amino group of the next amino acid.
+In this reaction, the amino group loses one hydrogen atom and the carboxyl loses a hydroxyl group, which join to form a water molecule.
+Always in this direction, the direction of the chain, from the amino terminus to the carboxy terminus.
+Because the amino group or the carboxyl group or both after the peptide bond became amide and carbonyl groups, respectively, what is left are not strictly amino acids, and are rather called residues.
+image:: (first two amino acids, and then two amino acids bound by the peptide bond and a water molecule)
+
+Around the peptide bond, electrons resonate from the oxygen to the nitrogen, conferring the peptide bond an extra rigidity, almost as if the peptide bond were a double bond.
+We make the peptide bond in our models a double bond, with long purple sticks. For this we need to replace the nitrogen blue bead by one with four holes.
+image:: (Picture with a purple double peptide bond)
+
+The extra rigid peptide bond brings the alpha carbons of each amino acid into the same plane together with the nitrogen and its hydrogen and the carbonyl group (the carbon and the oxygen), summing up to 6 atoms in the same plane.
+image::(Same picture as before, identifying the peptide plane)
+
+Around the rigid peptide bound, the peptide group can only adopt a cis or a trans conformation.
+The cis conformation is rare due to the energetic costs of the proximity of the lateral chains. Trans amino acids are much more common, and alternate the lateral chains in space.
+image:: (Cis and trans amino acids)
+
+After so many constrains, the flexibility of the peptide or the protein chain relies on two torsion angles around each peptide plane, Phi and Psi.
+We identify Phi and Psi with little colored paper squares at the bonds the define the axis of rotation of both angles.
+Phi is represented by pink flags and Psi by green flags. These paper cuts also help to fix the chosen angle for Phi and Psi.
+Phi rotates around the bond between N and Calpha. Psi rotates around the bond Calpha and carbonyl C.
+image:: (peptide with the paper cuts around the bonds that define phi and psi)
+
+Phi and Psi vary from -180 to +180 degrees around a conventional position.
+image:: (convention of phi and 0, -90 and +90 degrees)
+
+The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
+Ramachandran proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
+image:: (example of a Ramachandran plot)
+
+Ramachandran noticed that not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
+See what happens with Phi = Psi = 0 degrees.
+image:: (impediment of phi=psi=0)
+
+Helices appear for any sequential repeats of Phi and Psi.
+Try to make a helix with Phi = 120 and Psi = 90, or Phi = -90 and Psi = -60.
+
+Residues in an alpha helix appear in the region around Phi = -90 and Psi = 120.
+In this helix hydrogen bonds are formed between the carbonyl group of residue i and the amide group of residue i+4.
+This helix points all the lateral chains outwards (as do all helices), but it also fills all the space at the axis (not too tight, not too loose), and creates a dipole in the direction of the chain.
+image:: (alpha helix)
+
+Residues in a beta sheet appear in the upper left region of the Ramachandran plot.
+Try to make two extended strands with Phi = -180 and Psi = 180.
+Adjacent beta strands make hydrogen bonds between the carbonyl group of a residue in one strand and the amide group in the other strand.
+In the sheet the lateral chains of sequential residues alternate between pointing up and pointing down, which slightly twist the hydrogen bonds.
+To avoid this twist, beta sheets are rather twisted themselves, with Phi = -135 and Psi = 135.
+image:: (twisted beta sheet)
+
+The twist in the beta sheet leads to motifs shaped like a saddle or like a barrel (in the case of shear between strands).
+
+Due to the polymeric nature of proteins, a globular conformation is energetically preferred over the extended conformation.
+When the proteins fold into a globular shape, they form a hydrophobic core.
+Alpha helices and beta sheets are the perfect way to handle the amide and carbonyl groups' polarity inside the apolar core.
+They are major secondary structures, abundant in proteins, and building blocks for more complex and varied structural motifs.
+
+== AlphaFold predictions
+
+Predicting with AlphaFold3 could not be easier.
+In AlphaFold server (https://alphafoldserver.com/) paste the sequence of the protein to be modelled, and information on other entities to be predicted together.
+In this tutorial we will predict the structure of protein X, which has the sequence below.
+[source,]
+----
+>ProteinX
+xxxxxxxxxxxx
+----
+We will also predict the structure bound to its ligand. Unfortunately, the real ligand, molecule Y, is not among the possible ligands recognizable by AlphaFold3.
+So we will take a similar one, Ligand J.
+
+Not long after, AlphaFold3 outputs 3 main informations: the structure (colored by predicted linear difference distance test - plDDT),
+the Predicted Aligned Error (PAE) and predicted template modelling scores for the entire prediction (pTM) and for the residues in the interface between subnunits (ipTM).
