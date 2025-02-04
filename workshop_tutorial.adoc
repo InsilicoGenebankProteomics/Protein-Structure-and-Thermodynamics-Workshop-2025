@@ -7,7 +7,7 @@
 In our atomic models, black beads represent carbon atoms, blue nitrogen, red oxigen, yellow sulfur and small white beads represent hydrogen atoms.
 We start by building the most simple amino acid, glycine (G).
 
-image::building_blocks_images/glycine.jpeg[]
+image::building_blocks_images/glycine.jpeg[width=200]
 
 All amino acids have an amino group and a caborxyl group.
 Between them, there could be a large chain of carbon atoms, but most amino acids in our proteins world have only one, the alpha carbon, and hence are named alpha amino acids.
