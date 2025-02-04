@@ -7,17 +7,25 @@
 In our atomic models, black beads represent carbon atoms, blue nitrogen, red oxigen, yellow sulfur and small white beads represent hydrogen atoms.
 We start by building the most simple amino acid, glycine (G).
 
-.Glycine. 
-image::building_blocks_images/glycine.jpeg[width=200]
+.Glycine.
+image:building_blocks_images/glycine.jpeg[width=200]
 
-All amino acids have an amino group and a caborxyl group.
+All amino acids have an amino group and a carboxyl group.
 Between them, there could be a large chain of carbon atoms, but most amino acids in our proteins world have only one, the alpha carbon, and hence are named alpha amino acids.
-image:: (picture of glycine, a beta amino acid, and a gamma amino acid)
+
+.From left to right, an alpha amino acid, a beta amino acid, and a gamma amino acid.
+image:building_blocks_images/glycine.jpeg[width=200]
+image:building_blocks_images/beta-amino_acid.jpeg[width=200]
+image:building_blocks_images/gama-amino-acid.jpeg[width=200]
 
 These two groups and the alpha carbon form the main chain of an amino acid, but there can also be a lateral chain attached to the alpha carbon.
 There are 20 amino acids directly enconded by DNA codons, which differ by the lateral chain. Let us try to build an amino acid with our models.
-Since amino acids are chiral at the alpha carbon, be careful to build a left-hand, D enantiomer, like all our proteinogenic amino acids (with rare exceptions), not a right-hand, L enantiomer.
-image:: (picture of an alanine left-handed and right-handed)
+Since amino acids are chiral at the alpha carbon, be careful to build a left-hand, L enantiomer, like all our proteinogenic amino acids (with rare exceptions), not a right-hand, D enantiomer.
+
+.A left-handed (L) alanine and a right-handed (D) alanine.
+image:building_blocks_images/Left-handed-alanine.jpeg[width=200]
+image:building_blocks_images/Right-handed-alanine.jpeg[width=200]
+
 
 The peptide bond is formed between the carboxyl group of one amino acid with the amino group of the next amino acid.
 In this reaction, the amino group loses one hydrogen atom and the carboxyl loses a hydroxyl group, which join to form a water molecule.
