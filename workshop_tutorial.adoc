@@ -37,7 +37,7 @@ Because the amino group or the carboxyl group or both after the peptide bond bec
 image:building_blocks_images/two_alanines.jpeg[width=200]
 image:building_blocks_images/two_alanine_bound_woth_water.jpeg[width=200]
 
-Around the peptide bond, electrons resonate from the oxygen to the nitrogen, conferring the peptide bond an extra rigidity, almost as if the peptide bond were a double bond.
+Around the peptide bond, electrons resonate between the oxygen and the nitrogen, conferring the peptide bond an extra rigidity, almost as if the peptide bond were a double bond.
 We make the peptide bond in our models a double bond, with long purple sticks. For this we need to replace the nitrogen blue bead by one with four holes.
 
 .Making a rigid (purple) peptide bond.
@@ -61,7 +61,7 @@ We identify Phi and Psi with little colored paper squares at the bonds that defi
 Phi is represented by pink flags and Psi by green flags. These paper cuts also help to fix the chosen angle for Phi and Psi in our atomic models.
 Phi rotates around the bond between N and Calpha. Psi rotates around the bond Calpha and carbonyl C.
 
-.Two torsion angles: Phi, around the bond between N and Calpha, in green; and Psi, around the bond between Calpha and carbonyl C, in pink.
+.Two torsion angles: Phi, around the bond between N and Calpha, in pink; and Psi, around the bond between Calpha and carbonyl C, in green.
 image:building_blocks_images/peptides_with_angles_papers.jpeg[width=200]
 
 Phi and Psi vary from -180 to +180 degrees around a conventional position.
@@ -79,10 +79,10 @@ image:building_blocks_images/psi_+90_degrees.jpeg[width=200]
 image:building_blocks_images/psi_-90_degrees.jpeg[width=200]
 
 The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
-Ramachandran proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
+Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
 image:: (example of a Ramachandran plot)
 
-Ramachandran noticed that not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
+Not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
 See what happens with Phi = Psi = 0 degrees.
 
 .Phi = Psi = 0 degrees.
@@ -92,7 +92,7 @@ Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha h
 In this helix hydrogen bonds are formed between the carbonyl group of residue i and the amide group of residue i+4.
 This helix points all the lateral chains outwards (as do all helices), but it also fills all the space at the axis (not too tight, not too loose), and creates a dipole in the direction of the chain.
 
-.ALpha helix viewed from the side and from the top.
+.Alpha helix viewed from the side and from the top.
 image:building_blocks_images/alpha-helix_side_view.jpeg[width=200]
 image:building_blocks_images/alpha-helix_top_view.jpeg[width=200]
 
@@ -121,19 +121,17 @@ They are major secondary structures, abundant in proteins, and building blocks f
 
 Predicting with link:https://www.nature.com/articles/s41586-024-07487-w[AlphaFold3] could not be easier.
 In link:https://alphafoldserver.com/[AlphaFold3 server] paste the sequence of the protein to be modelled, and information on other entities to be predicted together.
-If you prefer to use IPK local installation of AlphaFold2 in the future, please check our link:https://github.com/amandascamara/Protein-Structure-Workshop[other tutorial] on the topic.
-In this tutorial we will predict the structure of protein X, which has the sequence below.
+If you prefer to use IPK's local installation of AlphaFold2 in the future, please check our link:https://github.com/amandascamara/Protein-Structure-Workshop[other tutorial] on the topic.
+In this tutorial we will predict the structure of karrikin-insensitive 2 (KAI2), which has the sequence below.
 [source,]
 ----
->ProteinX
-xxxxxxxxxxxx
+>Karrikin-Insensitive2
+GVVEEAHNVKVIGSGEATIVLGHGFGTDQSVWKHLVPHLVDDYRVVLYDNMGAGTTNPDYFDFDRYSNLEGYSFDLIAILEDLKIESCIFVGHSVSAMIGVLASLNRPDLFSKIVMISASPRYVNDVDYQGGFEQEDLNQLFEAIRSNYKAWCLGFAPLAVGGDMDSIAVQEFSRTLFNMRPDIALSVGQTIFQSDMRQILPFVTVPCHILQSVKDLAVPVVVSEYLHANLGCESVVEVIPSDGHLPQLSSPDSVIPVILRHIRNDI
 ----
-We will also predict the structure bound to its ligand. Unfortunately, the real ligand, molecule Y, is not among the possible ligands recognisable by AlphaFold3.
-So we will take a similar one, Ligand J.
 
-Not long after, AlphaFold3 outputs 3 main informations: the structure (colored by predicted link:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/[Local Distance Difference Test] - plDDT),
+Not long after, AlphaFold3 outputs 3 main pieces of information: the structure (colored by predicted link:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/[Local Distance Difference Test] - plDDT),
 the Predicted Aligned Error (PAE) and predicted link:https://en.wikipedia.org/wiki/Template_modeling_score[Template Modelling] (pTM) scores for the entire prediction (pTM) and for the residues in the interface between subnunits (ipTM).
-The pLDDT and pTM values derive from usual comparison measurements between two protein structures (lDDT and TM). But the 'predicted' term indicates the models are compared with the ground truth.
+The plDDT and pTM values derive from usual comparison measurements between two protein structures (lDDT and TM). But the 'predicted' term indicates the models are compared with the ground truth.
 PAE was introduced with AlphaFold2 and gives the error distance of residue x if the predicted and 'true' structures were aligned at residue y (an asymmetric matrix).
 It measures the relative position between two residues.
 Moreover, it reflects the relative position of domains.
@@ -151,7 +149,7 @@ terms_of_use.md <5>
 ----
 All files can be read with text editors.
 
-<1> For each output model, a file that has lists that correspond to the chain ID and plDDT of each atom, pae, chain ID and residue number for each residue.
+<1> For each output model, a file with lists that correspond to the chain ID and plDDT of each atom, PAE, chain ID and residue number for each residue.
 
 <2> The input information given by the user and the seed used, so that the same prediction can be done again.
 
