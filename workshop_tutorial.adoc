@@ -80,7 +80,7 @@ image:building_blocks_images/psi_-90_degrees.jpeg[width=200]
 
 The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
 Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
-image:building_blocks_images/ramachandran.png
+image:building_blocks_images/ramachandran.png[width=200]
 
 Not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
 See what happens with Phi = Psi = 0 degrees.
