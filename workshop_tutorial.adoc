@@ -86,7 +86,7 @@ Not all values of Phi and Psi are possible for all amino acids, due to steric im
 See what happens with Phi = Psi = 0 degrees.
 
 .Phi = Psi = 0 degrees.
-image:building_blocks_images/
+image:building_blocks_images/phi_psi_0.jpeg[width=200]
 
 Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha helix appear in the region close to Phi = -60 and Psi = -60.
 In this helix hydrogen bonds are formed between the carbonyl group of residue i and the amide group of residue i+4.
