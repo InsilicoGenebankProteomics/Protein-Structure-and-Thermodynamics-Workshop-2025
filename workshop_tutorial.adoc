@@ -100,7 +100,7 @@ Residues in a beta sheet appear in the upper left region of the Ramachandran plo
 Try to make two extended strands with Phi = -180 and Psi = 180.
 
 .Extended strand.
-image:building_blocks_images/
+image:building_blocks_images/phi_psi_0.jpeg[width=200]
 
 Adjacent beta strands make hydrogen bonds between the carbonyl group of a residue in one strand and the amide group in the other strand.
 In the sheet the lateral chains of sequential residues alternate between pointing up and pointing down, which slightly twist the hydrogen bonds.
