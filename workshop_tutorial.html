@@ -713,7 +713,7 @@ Because the amino group or the carboxyl group or both after the peptide bond bec
 <span class="image"><img src="building_blocks_images/two_alanine_bound_woth_water.jpeg" alt="two alanine bound woth water" width="200"></span></p>
 </div>
 <div class="paragraph">
-<p>Around the peptide bond, electrons resonate from the oxygen to the nitrogen, conferring the peptide bond an extra rigidity, almost as if the peptide bond were a double bond.
+<p>Around the peptide bond, electrons resonate between the oxygen and the nitrogen, conferring the peptide bond an extra rigidity, almost as if the peptide bond were a double bond.
 We make the peptide bond in our models a double bond, with long purple sticks. For this we need to replace the nitrogen blue bead by one with four holes.</p>
 </div>
 <div class="paragraph">
@@ -744,11 +744,11 @@ Phi is represented by pink flags and Psi by green flags. These paper cuts also h
 Phi rotates around the bond between N and Calpha. Psi rotates around the bond Calpha and carbonyl C.</p>
 </div>
 <div class="paragraph">
-<div class="title">Two torsion angles: Phi, around the bond between N and Calpha, in green; and Psi, around the bond between Calpha and carbonyl C, in pink.</div>
+<div class="title">Two torsion angles: Phi, around the bond between N and Calpha, in pink; and Psi, around the bond between Calpha and carbonyl C, in green.</div>
 <p><span class="image"><img src="building_blocks_images/peptides_with_angles_papers.jpeg" alt="peptides with angles papers" width="200"></span></p>
 </div>
 <div class="paragraph">
-<p>Phi and Psi vary from -180 to +180 degrees around a conventional position.</p>
+<p>Phi and Psi vary from -180 to +180 degrees around a conventional position, recommended by IUPAC-IUB commission of 1969.</p>
 </div>
 <div class="paragraph">
 <div class="title">Convention of Phi defined as dihedral angle at 0, +90 an -90 degrees.</div>
@@ -766,24 +766,24 @@ Phi rotates around the bond between N and Calpha. Psi rotates around the bond Ca
 </div>
 <div class="paragraph">
 <p>The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
-Ramachandran proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
-image:: (example of a Ramachandran plot)</p>
+Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
+<span class="image"><img src="building_blocks_images/ramachandran.png" alt="ramachandran" width="200"></span></p>
 </div>
 <div class="paragraph">
-<p>Ramachandran noticed that not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
+<p>Not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
 See what happens with Phi = Psi = 0 degrees.</p>
 </div>
 <div class="paragraph">
 <div class="title">Phi = Psi = 0 degrees.</div>
-<p>image:building_blocks_images/</p>
+<p><span class="image"><img src="building_blocks_images/phi_psi_0.jpeg" alt="phi psi 0" width="200"></span></p>
 </div>
 <div class="paragraph">
-<p>Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha helix appear in the region around Phi = -60 and Psi = -60.
+<p>Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha helix appear in the region close to Phi = -60 and Psi = -60.
 In this helix hydrogen bonds are formed between the carbonyl group of residue i and the amide group of residue i+4.
 This helix points all the lateral chains outwards (as do all helices), but it also fills all the space at the axis (not too tight, not too loose), and creates a dipole in the direction of the chain.</p>
 </div>
 <div class="paragraph">
-<div class="title">ALpha helix viewed from the side and from the top.</div>
+<div class="title">Alpha helix viewed from the side and from the top.</div>
 <p><span class="image"><img src="building_blocks_images/alpha-helix_side_view.jpeg" alt="alpha helix side view" width="200"></span>
 <span class="image"><img src="building_blocks_images/alpha-helix_top_view.jpeg" alt="alpha helix top view" width="200"></span></p>
 </div>
@@ -793,7 +793,7 @@ Try to make two extended strands with Phi = -180 and Psi = 180.</p>
 </div>
 <div class="paragraph">
 <div class="title">Extended strand.</div>
-<p>image:building_blocks_images/</p>
+<p><span class="image"><img src="building_blocks_images/phi_psi_0.jpeg" alt="phi psi 0" width="200"></span></p>
 </div>
 <div class="paragraph">
 <p>Adjacent beta strands make hydrogen bonds between the carbonyl group of a residue in one strand and the amide group in the other strand.
@@ -822,23 +822,19 @@ They are major secondary structures, abundant in proteins, and building blocks f
 <div class="paragraph">
 <p>Predicting with <a href="https://www.nature.com/articles/s41586-024-07487-w">AlphaFold3</a> could not be easier.
 In <a href="https://alphafoldserver.com/">AlphaFold3 server</a> paste the sequence of the protein to be modelled, and information on other entities to be predicted together.
-If you prefer to use IPK local installation of AlphaFold2 in the future, please check our <a href="https://github.com/amandascamara/Protein-Structure-Workshop">other tutorial</a> on the topic.
-In this tutorial we will predict the structure of protein X, which has the sequence below.</p>
+If you prefer to use IPK&#8217;s local installation of AlphaFold2 in the future, please check our <a href="https://github.com/amandascamara/Protein-Structure-Workshop">other tutorial</a> on the topic.
+In this tutorial we will predict the structure of karrikin-insensitive 2 (KAI2), which has the sequence below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code>&gt;ProteinX
-xxxxxxxxxxxx</code></pre>
+<pre class="rouge highlight"><code>&gt;Karrikin-Insensitive2
+GVVEEAHNVKVIGSGEATIVLGHGFGTDQSVWKHLVPHLVDDYRVVLYDNMGAGTTNPDYFDFDRYSNLEGYSFDLIAILEDLKIESCIFVGHSVSAMIGVLASLNRPDLFSKIVMISASPRYVNDVDYQGGFEQEDLNQLFEAIRSNYKAWCLGFAPLAVGGDMDSIAVQEFSRTLFNMRPDIALSVGQTIFQSDMRQILPFVTVPCHILQSVKDLAVPVVVSEYLHANLGCESVVEVIPSDGHLPQLSSPDSVIPVILRHIRNDI</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We will also predict the structure bound to its ligand. Unfortunately, the real ligand, molecule Y, is not among the possible ligands recognisable by AlphaFold3.
-So we will take a similar one, Ligand J.</p>
-</div>
-<div class="paragraph">
-<p>Not long after, AlphaFold3 outputs 3 main informations: the structure (colored by predicted <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/">Local Distance Difference Test</a> - plDDT),
+<p>Not long after, AlphaFold3 outputs 3 main pieces of information: the structure (colored by predicted <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/">Local Distance Difference Test</a> - plDDT),
 the Predicted Aligned Error (PAE) and predicted <a href="https://en.wikipedia.org/wiki/Template_modeling_score">Template Modelling</a> (pTM) scores for the entire prediction (pTM) and for the residues in the interface between subnunits (ipTM).
-The pLDDT and pTM values derive from usual comparison measurements between two protein structures (lDDT and TM). But the 'predicted' term indicates the models are compared with the ground truth.
+The plDDT and pTM values derive from usual comparison measurements between two protein structures (lDDT and TM). But the 'predicted' term indicates the models are compared with the ground truth.
 PAE was introduced with AlphaFold2 and gives the error distance of residue x if the predicted and 'true' structures were aligned at residue y (an asymmetric matrix).
 It measures the relative position between two residues.
 Moreover, it reflects the relative position of domains.
@@ -864,7 +860,7 @@ terms_of_use.md <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>For each output model, a file that has lists that correspond to the chain ID and plDDT of each atom, pae, chain ID and residue number for each residue.</td>
+<td>For each output model, a file with lists that correspond to the chain ID and plDDT of each atom, PAE, chain ID and residue number for each residue.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -1026,7 +1022,7 @@ Sometimes the proteins, or conformations of the same protein, are very different
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-04 12:55:15 +0100
+Last updated 2025-02-10 10:53:15 +0100
 </div>
 </div>
 </body>
