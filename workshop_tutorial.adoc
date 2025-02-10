@@ -64,7 +64,7 @@ Phi rotates around the bond between N and Calpha. Psi rotates around the bond Ca
 .Two torsion angles: Phi, around the bond between N and Calpha, in pink; and Psi, around the bond between Calpha and carbonyl C, in green.
 image:building_blocks_images/peptides_with_angles_papers.jpeg[width=200]
 
-Phi and Psi vary from -180 to +180 degrees around a conventional position.
+Phi and Psi vary from -180 to +180 degrees around a conventional position, recommended by IUPAC-IUB commission of 1969.
 
 .Convention of Phi defined as dihedral angle at 0, +90 an -90 degrees.
 image:building_blocks_images/phi_angle_planes.jpeg[width=200]
@@ -80,7 +80,7 @@ image:building_blocks_images/psi_-90_degrees.jpeg[width=200]
 
 The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
 Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
-image:: (example of a Ramachandran plot)
+image:building_blocks_images/ramachandran.png[width=200]
 
 Not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
 See what happens with Phi = Psi = 0 degrees.
@@ -88,7 +88,7 @@ See what happens with Phi = Psi = 0 degrees.
 .Phi = Psi = 0 degrees.
 image:building_blocks_images/
 
-Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha helix appear in the region around Phi = -60 and Psi = -60.
+Helices appear for any sequential repeats of Phi and Psi. Residues in an alpha helix appear in the region close to Phi = -60 and Psi = -60.
 In this helix hydrogen bonds are formed between the carbonyl group of residue i and the amide group of residue i+4.
 This helix points all the lateral chains outwards (as do all helices), but it also fills all the space at the axis (not too tight, not too loose), and creates a dipole in the direction of the chain.
 
