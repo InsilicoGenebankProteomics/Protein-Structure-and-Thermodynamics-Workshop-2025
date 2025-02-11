@@ -294,7 +294,7 @@ show surface, prepared01
 .Electrostatic charge distribution on the surface of the protein.
 image:images/[]
 
-=== Structural superposition
+== Structural superposition
 
 Another way to upload a structure is by online fetching.
 This feature automatically searches for a .cif file in the online link:https://www.rcsb.org/[Protein Data Bank] with the given PDB code.
@@ -302,8 +302,10 @@ Let us try to fecth KAI2 solved by cristallography, PDB code 4ih1.
 [source,python]
 ----
 # File -> Get PDB... -> 4ih1
+# Hide of 4ih1 -> water
 >
 fetch 4ih1
+hide everything, solvent
 ----
 
 Now you should have 2 objects displayed at your sidebar.
@@ -318,6 +320,9 @@ To compare their structural variability more easily, we should superpose them.
 align 4ih1, model_0
 center 4ih1
 ----
+
+.Structural alignment or superposition
+image:images/super.png[width=200]
 
 The align command first performs a sequence alignment and then minimises the Root Mean Square Deviation of the aligned residues.
 Sometimes the proteins, or conformations of the same protein, are very different and it is more useful to just superpose a selected region of them.
