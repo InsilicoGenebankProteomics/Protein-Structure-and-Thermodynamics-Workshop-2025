@@ -183,7 +183,7 @@ Alternative programs are Chimera, RasMOL, VMD (specially useful for molecular dy
 PyMOL works both with graphical interface and command line.
 
 .PyMOL interface
-image:images/Picture1.png[]
+image:images/pymol3.png[]
 
 Those many options allow different ways of working with molecules to do similar things.
 Throughout this tutorial we will show both ways, mouse actions and command lines, whenever possible.
@@ -202,15 +202,16 @@ Or just drag the file from its folder to PyMOL interface.
 After uploaded, the structure will appear as a new object at the sidebar with the name of the file without the .cif extension.
 
 .List of objects
-image:images/Pictures/Picture2.png[width=200]
+image:images/pymol_object.png[width=200]
 
 Try out different representation modes with the show option (S) or the Presets... tab.
 
 .Different representations
-image:images/Pictures/Picture2.png[width=200]
-image:images/Pictures/Picture2.png[width=200]
-image:images/Pictures/Picture2.png[width=200]
-image:images/Pictures/Picture2.png[width=200]
+image:images/kai2_ribbon.png[width=200]
+image:images/kai2_plddt.png[width=200]
+image:images/kai2_sticks.png[width=200]
+image:images/kai2_spheres.png[width=200]
+image:images/kai2_surface.png[width=200]
 
 Take a closer look to compare the sticks and the ribbon representation. Can you identify what each line of the ribbon represents?
 
@@ -232,7 +233,7 @@ color n3, b < 50
 <2> But by command line we can set the same colours as in AlphaFold's standard representation.
 
 .Predicted KAI2 coloured by plDDT
-image:images/Pictures/Picture2.png[width=200]
+image:images/kai2_plddt.png[width=200]
 
 == Selecting and measuring contacts
 
@@ -262,6 +263,9 @@ distance model_0 and resid 2 and name CA, model_0 and resid 3 and name CA
 distance model_0 and resid 3 and name CA, model_0 and resid 4 and name CA
 ----
 
+.Distances between neighbour alpha carbons
+image:images/ca_distances.png[width=200]
+
 Are the distances between neighbour alpha carbons as expected?
 There are many ways of selecting a region with PyMOL, using its own link:https://pymolwiki.org/index.php/Selection_Algebra[selection language]
 
@@ -270,7 +274,7 @@ There are many ways of selecting a region with PyMOL, using its own link:https:/
 Talking about potentials, the eletrostatic potential of a molecule can be calculated in PyMOL with the APBS plugin. APBS stands for Adaptative Poisson-Boltzmann Solver. It’s a program to numerically solve the rearrangement of charges of a molecule surrounded by a solvent with ions and dielectric properties.
 
 .Redistribution of charges of the solid in response to the charges of the solvent [source: wikipedia].
-image:images/Pictures/PicturePB_wikipedia.jpg[]
+image:images/PicturePB_wikipedia.jpg[]
 
 Let's calculate the distribution of the electrostatic potential at the surface of the predicted KAI2.
 [source,python]
@@ -287,12 +291,14 @@ set surface_color, apbs_ramp01, prepared01
 show surface, prepared01
 ----
 
+.Electrostatic charge distribution on the surface of the protein.
+image:images/[]
 
 === Structural superposition
 
 Another way to upload a structure is by online fetching.
 This feature automatically searches for a .cif file in the online link:https://www.rcsb.org/[Protein Data Bank] with the given PDB code.
-Let us try to fecth KAI2 solved by cristallography, PDB code 4ih1
+Let us try to fecth KAI2 solved by cristallography, PDB code 4ih1.
 [source,python]
 ----
 # File -> Get PDB... -> 4ih1
