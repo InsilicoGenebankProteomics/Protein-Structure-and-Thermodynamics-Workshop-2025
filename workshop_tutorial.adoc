@@ -198,6 +198,7 @@ We can open a structure file in different ways:
 load /path2file/model_0.cif
 ----
 
+Or just drag the file from its folder to PyMOL interface.
 After uploaded, the structure will appear as a new object at the sidebar with the name of the file without the .cif extension.
 
 .List of objects
