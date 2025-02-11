@@ -162,12 +162,12 @@ All files can be read with text editors.
 
 More about the output can be found on the link:https://github.com/google-deepmind/alphafold3/[github of AlphaFold3] and on the paper's link:https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-024-07487-w/MediaObjects/41586_2024_7487_MOESM1_ESM.pdf[supplementary material] .
 Compared to the output of AlphaFold2, this output is summarised.
-Main missing information is the verbose on the prediction steps and the multiple sequence alignments, which are substantially reduced and de-emphasized in the new pipeline, which rather compares sequence pairs (still, information on which sequences are paired would be appreciated).
+Main missing information is the verbose on the prediction steps and the multiple sequence alignments, which are substantially reduced and de-emphasized in the new pipeline, which rather compares sequence pairs.
 It also explicitly outputs a value for disorder based on RASA (Relative solvent Accessible Surface Area) metrics, not relying on plDDT anymore.
 It also ceased to output timings on the steps of the prediction, as AlphaFold2 did, but it is much faster.
 
-The .cif structure files (an improve version of the old .pdb format) can be read with a text editors. .cif files usually have a reader with information on the source of the file,
- with metrics from the experiment used to solve this structure (in this case some detail s about AlphaFold3),
+The .cif structure files (an updated version of the old .pdb format) can be read with a text editors. .cif files usually have a header with information on the source of the file,
+ with metrics from the experiment used to solve this structure (in this case some details about AlphaFold3),
  some metrics on the molecules, and, most important, the atomic coordinates together with plDDT values for each atom (AlphaFold2 output only the confidence per residue).
 
 == Analysing the structures with PyMOL
@@ -182,7 +182,8 @@ Alternative programs are Chimera, RasMOL, VMD (specially useful for molecular dy
 
 PyMOL works both with graphical interface and command line.
 
-image::Pictures/Picture1.png[]
+.PyMOL interface
+image:images/Picture1.png[]
 
 Those many options allow different ways of working with molecules to do similar things.
 Throughout this tutorial we will show both ways, mouse actions and command lines, whenever possible.
@@ -198,9 +199,21 @@ load /path2file/model_0.cif
 ----
 
 After uploaded, the structure will appear as a new object at the sidebar with the name of the file without the .cif extension.
-image::Pictures/Picture2.png[width=200]
 
-We can colour it to show AlphaFold's confidence for each residue.
+.List of objects
+image:images/Pictures/Picture2.png[width=200]
+
+Try out different representation modes with the show option (S) or the Presets... tab.
+
+.Different representations
+image:images/Pictures/Picture2.png[width=200]
+image:images/Pictures/Picture2.png[width=200]
+image:images/Pictures/Picture2.png[width=200]
+image:images/Pictures/Picture2.png[width=200]
+
+Take a closer look to compare the sticks and the ribbon representation. Can you identify what each line of the ribbon represents?
+
+We can colour it to show AlphaFold's confidence for each atom.
 [Source,python]
 ----
 # Color of model_0 -> spectrum -> b-factors <1>
@@ -217,48 +230,89 @@ color n3, b < 50
 <1> Colouring by mouse command only has limited options for colouring
 <2> But by command line we can set the same colours as in AlphaFold's standard representation.
 
+.Predicted KAI2 coloured by plDDT
+image:images/Pictures/Picture2.png[width=200]
+
+== Selecting and measuring contacts
+
+In the view mode of the mouse, click the left button and move to rotate the protein structure.
+Click the right button and move to zoom in and out.
+Ctrl (or strg in German or command on Mac) + mouse left button to move the object on the image plane.
+Other mouse functions together with keyboard shortcuts are possible, but they vary with mouse type.
+Make sure the view options displays "Atoms". 
+Rotating the structure, see if you can find and select neighbour alpha carbons and measure the distance between them.
+
+[source,python]
+----
+# Action of model_0 -> show -> sticks
+# Setting -> Line & Sticks -> Ball and Stick (check)
+# select some neighbour alpha carbons
+# Action of (sele) -> rename selection -> neighbour_alpha_carbons
+# Disable (neighbour alpha carbons)
+# Color of neighbour_alpha_carbons -> oranges -> brightorange
+# Wizard -> Measurements -> click first atom and then second atom, as many times as you want, and then -> Done
+>
+show sticks
+set stick_ball, on
+select neighbour_alpha_carbons, model_0 and resid 1-4 and name CA
+color brightorange, neighbour_alpha_carbons
+distance model_0 and resid 1 and name CA, model_0 and resid 2 and name CA
+distance model_0 and resid 2 and name CA, model_0 and resid 3 and name CA
+distance model_0 and resid 3 and name CA, model_0 and resid 4 and name CA
+----
+
+Are the distances between neighbour alpha carbons as expected?
+There are many ways of selecting a region with PyMOL, using its own link:https://pymolwiki.org/index.php/Selection_Algebra[selection language]
+
+== Surface distribution of electrostatic potential [[APBS]]
+
+Talking about potentials, the eletrostatic potential of a molecule can be calculated in PyMOL with the APBS plugin. APBS stands for Adaptative Poisson-Boltzmann Solver. It’s a program to numerically solve the rearrangement of charges of a molecule surrounded by a solvent with ions and dielectric properties.
+
+.Redistribution of charges of the solid in response to the charges of the solvent [source: wikipedia].
+image:images/Pictures/PicturePB_wikipedia.jpg[]
+
+Let's calculate the distribution of the electrostatic potential at the surface of the predicted KAI2.
+[source,python]
+----
+# Plugin -> APBS Electrostatics -> Selection polymer & model_0 -> Run
+>
+from pmg_tk.startup.apbs_gui.creating import pdb2pqr_cli
+from pmg_tk.startup.apbs_gui.electrostatics import map_new_apbs
+pdb2pqr_cli("prepared01", "model_0", options=["--ff", "amber"])
+map_new_apbs("apbs_map01", "prepared01")
+ramp_new apbs_ramp01, apbs_map01, [-5,0,5]
+set surface_ramp_above_mode, 1, prepared01
+set surface_color, apbs_ramp01, prepared01
+show surface, prepared01
+----
+
+
+=== Structural superposition
 
 Another way to upload a structure is by online fetching.
 This feature automatically searches for a .cif file in the online link:https://www.rcsb.org/[Protein Data Bank] with the given PDB code.
-Let us try to fecth protein X solved by cristallography, PDB code 1xyz
+Let us try to fecth KAI2 solved by cristallography, PDB code 4ih1
 [source,python]
 ----
-# File -> Get PDB... -> 1xyz
+# File -> Get PDB... -> 4ih1
 >
-fetch 1xyz
+fetch 4ih1
 ----
 
 Now you should have 2 objects displayed at your sidebar.
 A click at the name of an object will disable or enable it.
 
-=== Structural superposition
-
 To compare their structural variability more easily, we should superpose them.
 [source,python]
 ----
-# Action of 4pcf_A -> align -> to molecule -> 4pc8
-# Action of 4pc8 -> center
+# Action of 4ih1 -> align -> to molecule -> model_0
+# Action of model_0 -> center
 >
-align 4pcf_A, 4pc8
-center 4pc8
+align 4ih1, model_0
+center 4ih1
 ----
 
 The align command first performs a sequence alignment and then minimises the Root Mean Square Deviation of the aligned residues.
 Sometimes the proteins, or conformations of the same protein, are very different and it is more useful to just superpose a selected region of them.
-
-[source,python]
-----
-# Mouse selection mode Residues -> select residues 14 to 57 of model_0
-# Action of (sele) -> rename selection -> Renaming sele to model_0-domainA
-# select residues 14 to 57 of 1xyz
-# Action of (sele) -> to selection -> model_0-domainA
->
-select model_0-domainA, model_0 and resi 14-57
-select 1xyz-domainA, 1xyz and resi 14-57
-align 1xyz-domainA, model_0-domainA
-center 1xyz-domainA
-----
-
-Just a parentheses, there are many ways of selecting a region with PyMOL, using its own link:https://pymolwiki.org/index.php/Selection_Algebra[selection language]
 
 Now se if you can superpose your predicted structure with the other predictions from other colleagues. Are AlphaFold predictions always the same?
