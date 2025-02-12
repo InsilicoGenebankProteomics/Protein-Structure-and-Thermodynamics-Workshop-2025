@@ -274,7 +274,7 @@ There are many ways of selecting a region with PyMOL, using its own link:https:/
 Talking about potentials, the eletrostatic potential of a molecule can be calculated in PyMOL with the APBS plugin. APBS stands for Adaptative Poisson-Boltzmann Solver. It’s a program to numerically solve the rearrangement of charges of a molecule surrounded by a solvent with ions and dielectric properties.
 
 .Redistribution of charges of the solid in response to the charges of the solvent [source: wikipedia].
-image:images/PicturePB_wikipedia.jpg[width=400]
+image:images/PicturePB_wikipedia.jpg[width=200]
 
 Let's calculate the distribution of the electrostatic potential at the surface of the predicted KAI2.
 [source,python]
@@ -292,7 +292,7 @@ show surface, prepared01
 ----
 
 .Electrostatic charge distribution on the surface of the protein.
-image:images/apbs.png[]
+image:images/apbs.png[width=400]
 
 == Structural superposition
 
@@ -322,7 +322,7 @@ center 4ih1
 ----
 
 .Structural alignment or superposition
-image:images/super.png[width=200]
+image:images/super.png[width=400]
 
 The align command first performs a sequence alignment and then minimises the Root Mean Square Deviation of the aligned residues.
 Sometimes the proteins, or conformations of the same protein, are very different and it is more useful to just superpose a selected region of them.
@@ -346,8 +346,8 @@ Our next step will need a structure file on .pdb format, so let us save a .pdb v
 ----
 # File -> Export Structure... -> Export Molecule... -> Selection model_0 -> Save... -> Save as type: PDB -> Save
 >
-save model_0.pdb, model_0 <*>
+save model_0.pdb, model_0 <1>
 ----
-<*> When saving with command line, give the entire path where to save the new file, or check where the current session is with pwd. 
+<1> When saving with command line, give the entire path where to save the new file, or check where the current session is with pwd. 
 
 
