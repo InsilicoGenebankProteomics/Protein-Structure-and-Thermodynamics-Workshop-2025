@@ -292,7 +292,7 @@ show surface, prepared01
 ----
 
 .Electrostatic charge distribution on the surface of the protein.
-image:images/[]
+image:images/apbs.png[]
 
 == Structural superposition
 
