@@ -660,11 +660,11 @@ pre.rouge {
 <ul class="sectlevel1">
 <li><a href="#_amino_acids_building_blocks">Amino acids building blocks</a></li>
 <li><a href="#_prediction_with_alphafold3">Prediction with AlphaFold3</a></li>
-<li><a href="#_analysing_the_structures_with_pymol">Analysing the structures with PyMOL</a>
-<ul class="sectlevel2">
+<li><a href="#_analysing_the_structures_with_pymol">Analysing the structures with PyMOL</a></li>
+<li><a href="#_selecting_and_measuring_contacts">Selecting and measuring contacts</a></li>
+<li><a href="#APBS">Surface distribution of electrostatic potential</a></li>
 <li><a href="#_structural_superposition">Structural superposition</a></li>
-</ul>
-</li>
+<li><a href="#_save">Save</a></li>
 </ul>
 </div>
 </div>
@@ -766,11 +766,8 @@ Phi rotates around the bond between N and Calpha. Psi rotates around the bond Ca
 </div>
 <div class="paragraph">
 <p>The conformation of the main chain of a protein can be entirely defined by Phi and Psi torsion angles.
-Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.</p>
-</div>
-<div class="paragraph">
-<div class="title">Ramachandran plot</div>
-<p><span class="image"><img src="building_blocks_images/ramachandran.png" alt="ramachandran" width="200"></span></p>
+Sasisekharan (1962) proposed to analyse these angles in what we know today as the Ramachandran plot. Where each residue is identified by a dot with certain Phi and Psi.
+<span class="image"><img src="building_blocks_images/ramachandran.png" alt="ramachandran" width="200"></span></p>
 </div>
 <div class="paragraph">
 <p>Not all values of Phi and Psi are possible for all amino acids, due to steric impediments or clashes.
@@ -886,13 +883,13 @@ terms_of_use.md <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 <div class="paragraph">
 <p>More about the output can be found on the <a href="https://github.com/google-deepmind/alphafold3/">github of AlphaFold3</a> and on the paper&#8217;s <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-024-07487-w/MediaObjects/41586_2024_7487_MOESM1_ESM.pdf">supplementary material</a> .
 Compared to the output of AlphaFold2, this output is summarised.
-Main missing information is the verbose on the prediction steps and the multiple sequence alignments, which are substantially reduced and de-emphasized in the new pipeline, which rather compares sequence pairs (still, information on which sequences are paired would be appreciated).
+Main missing information is the verbose on the prediction steps and the multiple sequence alignments, which are substantially reduced and de-emphasized in the new pipeline, which rather compares sequence pairs.
 It also explicitly outputs a value for disorder based on RASA (Relative solvent Accessible Surface Area) metrics, not relying on plDDT anymore.
 It also ceased to output timings on the steps of the prediction, as AlphaFold2 did, but it is much faster.</p>
 </div>
 <div class="paragraph">
-<p>The .cif structure files (an improve version of the old .pdb format) can be read with a text editors. .cif files usually have a reader with information on the source of the file,
- with metrics from the experiment used to solve this structure (in this case some detail s about AlphaFold3),
+<p>The .cif structure files (an updated version of the old .pdb format) can be read with a text editors. .cif files usually have a header with information on the source of the file,
+ with metrics from the experiment used to solve this structure (in this case some details about AlphaFold3),
  some metrics on the molecules, and, most important, the atomic coordinates together with plDDT values for each atom (AlphaFold2 output only the confidence per residue).</p>
 </div>
 </div>
@@ -912,10 +909,9 @@ Alternative programs are Chimera, RasMOL, VMD (specially useful for molecular dy
 <div class="paragraph">
 <p>PyMOL works both with graphical interface and command line.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="Pictures/Picture1.png" alt="Picture1">
-</div>
+<div class="paragraph">
+<div class="title">PyMOL interface</div>
+<p><span class="image"><img src="images/pymol3.png" alt="pymol3"></span></p>
 </div>
 <div class="paragraph">
 <p>Those many options allow different ways of working with molecules to do similar things.
@@ -934,11 +930,29 @@ Command lines will follow &gt; and will be highlighted as Python codes.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>After uploaded, the structure will appear as a new object at the sidebar with the name of the file without the .cif extension.
-image::Pictures/Picture2.png[width=200]</p>
+<p>Or just drag the file from its folder to PyMOL interface.
+After uploaded, the structure will appear as a new object at the sidebar with the name of the file without the .cif extension.</p>
 </div>
 <div class="paragraph">
-<p>We can colour it to show AlphaFold&#8217;s confidence for each residue.</p>
+<div class="title">List of objects</div>
+<p><span class="image"><img src="images/pymol_object.png" alt="pymol object" width="200"></span></p>
+</div>
+<div class="paragraph">
+<p>Try out different representation modes with the show option (S) or the Presets&#8230;&#8203; tab.</p>
+</div>
+<div class="paragraph">
+<div class="title">Different representations: ribbon, cartoon, sticks, spheres, and surface</div>
+<p><span class="image"><img src="images/kai2_ribbon.png" alt="kai2 ribbon" width="400"></span>
+<span class="image"><img src="images/kai2_plddt.png" alt="kai2 plddt" width="400"></span>
+<span class="image"><img src="images/kai2_sticks.png" alt="kai2 sticks" width="400"></span>
+<span class="image"><img src="images/kai2_spheres.png" alt="kai2 spheres" width="400"></span>
+<span class="image"><img src="images/kai2_surface.png" alt="kai2 surface" width="400"></span></p>
+</div>
+<div class="paragraph">
+<p>Take a closer look to compare the sticks and the ribbon representation. Can you identify what each line of the ribbon represents?</p>
+</div>
+<div class="paragraph">
+<p>We can colour it to show AlphaFold&#8217;s confidence for each atom.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -967,65 +981,167 @@ color n3, b &lt; 50</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Another way to upload a structure is by online fetching.
-This feature automatically searches for a .cif file in the online <a href="https://www.rcsb.org/">Protein Data Bank</a> with the given PDB code.
-Let us try to fecth protein X solved by cristallography, PDB code 1xyz</p>
+<div class="title">Predicted KAI2 coloured by plDDT</div>
+<p><span class="image"><img src="images/kai2_plddt.png" alt="kai2 plddt" width="400"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_selecting_and_measuring_contacts">Selecting and measuring contacts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the view mode of the mouse, click the left button and move to rotate the protein structure.
+Click the right button and move to zoom in and out.
+Ctrl (or strg in German or command on Mac) + mouse left button to move the object on the image plane.
+Other mouse functions together with keyboard shortcuts are possible, but they vary with mouse type.
+Make sure the view options displays "Atoms".
+Rotating the structure, see if you can find and select neighbour alpha carbons and measure the distance between them.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># File -&gt; Get PDB... -&gt; 1xyz
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Action of model_0 -&gt; show -&gt; sticks
+# Setting -&gt; Line &amp; Sticks -&gt; Ball and Stick (check)
+# select some neighbour alpha carbons
+# Action of (sele) -&gt; rename selection -&gt; neighbour_alpha_carbons
+# Disable (neighbour alpha carbons)
+# Color of neighbour_alpha_carbons -&gt; oranges -&gt; brightorange
+# Wizard -&gt; Measurements -&gt; click first atom and then second atom, as many times as you want, and then -&gt; Done
 </span><span class="o">&gt;</span>
-<span class="n">fetch</span> <span class="mi">1</span><span class="n">xyz</span></code></pre>
+<span class="n">show</span> <span class="n">sticks</span>
+<span class="nb">set</span> <span class="n">stick_ball</span><span class="p">,</span> <span class="n">on</span>
+<span class="n">select</span> <span class="n">neighbour_alpha_carbons</span><span class="p">,</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">1</span><span class="o">-</span><span class="mi">4</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span>
+<span class="n">color</span> <span class="n">brightorange</span><span class="p">,</span> <span class="n">neighbour_alpha_carbons</span>
+<span class="n">distance</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span><span class="p">,</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span>
+<span class="n">distance</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span><span class="p">,</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span>
+<span class="n">distance</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span><span class="p">,</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">CA</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Distances between neighbour alpha carbons</div>
+<p><span class="image"><img src="images/ca_distances.png" alt="ca distances" width="400"></span></p>
+</div>
+<div class="paragraph">
+<p>Are the distances between neighbour alpha carbons as expected?
+There are many ways of selecting a region with PyMOL, using its own <a href="https://pymolwiki.org/index.php/Selection_Algebra">selection language</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="APBS">Surface distribution of electrostatic potential</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Talking about potentials, the eletrostatic potential of a molecule can be calculated in PyMOL with the APBS plugin. APBS stands for Adaptative Poisson-Boltzmann Solver. It’s a program to numerically solve the rearrangement of charges of a molecule surrounded by a solvent with ions and dielectric properties.</p>
+</div>
+<div class="paragraph">
+<div class="title">Redistribution of charges of the solid in response to the charges of the solvent [source: wikipedia].</div>
+<p><span class="image"><img src="images/PicturePB_wikipedia.jpg" alt="PicturePB wikipedia" width="200"></span></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s calculate the distribution of the electrostatic potential at the surface of the predicted KAI2.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Plugin -&gt; APBS Electrostatics -&gt; Selection polymer &amp; model_0 -&gt; Run
+</span><span class="o">&gt;</span>
+<span class="kn">from</span> <span class="nn">pmg_tk.startup.apbs_gui.creating</span> <span class="kn">import</span> <span class="n">pdb2pqr_cli</span>
+<span class="kn">from</span> <span class="nn">pmg_tk.startup.apbs_gui.electrostatics</span> <span class="kn">import</span> <span class="n">map_new_apbs</span>
+<span class="n">pdb2pqr_cli</span><span class="p">(</span><span class="s">"prepared01"</span><span class="p">,</span> <span class="s">"model_0"</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s">"--ff"</span><span class="p">,</span> <span class="s">"amber"</span><span class="p">])</span>
+<span class="n">map_new_apbs</span><span class="p">(</span><span class="s">"apbs_map01"</span><span class="p">,</span> <span class="s">"prepared01"</span><span class="p">)</span>
+<span class="n">ramp_new</span> <span class="n">apbs_ramp01</span><span class="p">,</span> <span class="n">apbs_map01</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">set</span> <span class="n">surface_ramp_above_mode</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prepared01</span>
+<span class="nb">set</span> <span class="n">surface_color</span><span class="p">,</span> <span class="n">apbs_ramp01</span><span class="p">,</span> <span class="n">prepared01</span>
+<span class="n">show</span> <span class="n">surface</span><span class="p">,</span> <span class="n">prepared01</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Electrostatic charge distribution on the surface of the protein.</div>
+<p><span class="image"><img src="images/apbs.png" alt="apbs" width="400"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structural_superposition">Structural superposition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another way to upload a structure is by online fetching.
+This feature automatically searches for a .cif file in the online <a href="https://www.rcsb.org/">Protein Data Bank</a> with the given PDB code.
+Let us try to fecth KAI2 solved by cristallography, PDB code 4ih1.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># File -&gt; Get PDB... -&gt; 4ih1
+# Hide of 4ih1 -&gt; water
+</span><span class="o">&gt;</span>
+<span class="n">fetch</span> <span class="mi">4</span><span class="n">ih1</span>
+<span class="n">hide</span> <span class="n">everything</span><span class="p">,</span> <span class="n">solvent</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Now you should have 2 objects displayed at your sidebar.
 A click at the name of an object will disable or enable it.</p>
 </div>
-<div class="sect2">
-<h3 id="_structural_superposition">Structural superposition</h3>
 <div class="paragraph">
 <p>To compare their structural variability more easily, we should superpose them.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Action of 4pcf_A -&gt; align -&gt; to molecule -&gt; 4pc8
-# Action of 4pc8 -&gt; center
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Action of 4ih1 -&gt; align -&gt; to molecule -&gt; model_0
+# Action of model_0 -&gt; center
 </span><span class="o">&gt;</span>
-<span class="n">align</span> <span class="mi">4</span><span class="n">pcf_A</span><span class="p">,</span> <span class="mi">4</span><span class="n">pc8</span>
-<span class="n">center</span> <span class="mi">4</span><span class="n">pc8</span></code></pre>
+<span class="n">align</span> <span class="mi">4</span><span class="n">ih1</span><span class="p">,</span> <span class="n">model_0</span>
+<span class="n">center</span> <span class="mi">4</span><span class="n">ih1</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<div class="title">Structural alignment or superposition</div>
+<p><span class="image"><img src="images/super.png" alt="super" width="400"></span></p>
 </div>
 <div class="paragraph">
 <p>The align command first performs a sequence alignment and then minimises the Root Mean Square Deviation of the aligned residues.
 Sometimes the proteins, or conformations of the same protein, are very different and it is more useful to just superpose a selected region of them.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Mouse selection mode Residues -&gt; select residues 14 to 57 of model_0
-# Action of (sele) -&gt; rename selection -&gt; Renaming sele to model_0-domainA
-# select residues 14 to 57 of 1xyz
-# Action of (sele) -&gt; to selection -&gt; model_0-domainA
-</span><span class="o">&gt;</span>
-<span class="n">select</span> <span class="n">model_0</span><span class="o">-</span><span class="n">domainA</span><span class="p">,</span> <span class="n">model_0</span> <span class="ow">and</span> <span class="n">resi</span> <span class="mi">14</span><span class="o">-</span><span class="mi">57</span>
-<span class="n">select</span> <span class="mi">1</span><span class="n">xyz</span><span class="o">-</span><span class="n">domainA</span><span class="p">,</span> <span class="mi">1</span><span class="n">xyz</span> <span class="ow">and</span> <span class="n">resi</span> <span class="mi">14</span><span class="o">-</span><span class="mi">57</span>
-<span class="n">align</span> <span class="mi">1</span><span class="n">xyz</span><span class="o">-</span><span class="n">domainA</span><span class="p">,</span> <span class="n">model_0</span><span class="o">-</span><span class="n">domainA</span>
-<span class="n">center</span> <span class="mi">1</span><span class="n">xyz</span><span class="o">-</span><span class="n">domainA</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Just a parentheses, there are many ways of selecting a region with PyMOL, using its own <a href="https://pymolwiki.org/index.php/Selection_Algebra">selection language</a></p>
 </div>
 <div class="paragraph">
 <p>Now se if you can superpose your predicted structure with the other predictions from other colleagues. Are AlphaFold predictions always the same?</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_save">Save</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Last, before moving on to the prediction of the binding of a ligand, we need to save our work.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># File -&gt; Save Session As...
+</span><span class="o">&gt;</span>
+<span class="n">save</span> <span class="n">session</span><span class="p">.</span><span class="n">pse</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Our next step will need a structure file on .pdb format, so let us save a .pdb version of our model_0.cif.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># File -&gt; Export Structure... -&gt; Export Molecule... -&gt; Selection model_0 -&gt; Save... -&gt; Save as type: PDB -&gt; Save
+</span><span class="o">&gt;</span>
+<span class="n">save</span> <span class="n">model_0</span><span class="p">.</span><span class="n">pdb</span><span class="p">,</span> <span class="n">model_0</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>When saving with command line, give the entire path where to save the new file, or check where the current session is with pwd.</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-10 10:56:16 +0100
+Last updated 2025-02-12 22:44:02 +0100
 </div>
 </div>
 </body>
