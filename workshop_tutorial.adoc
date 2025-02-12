@@ -207,11 +207,11 @@ image:images/pymol_object.png[width=200]
 Try out different representation modes with the show option (S) or the Presets... tab.
 
 .Different representations: ribbon, cartoon, sticks, spheres, and surface
-image:images/kai2_ribbon.png[width=200]
-image:images/kai2_plddt.png[width=200]
-image:images/kai2_sticks.png[width=200]
-image:images/kai2_spheres.png[width=200]
-image:images/kai2_surface.png[width=200]
+image:images/kai2_ribbon.png[width=400]
+image:images/kai2_plddt.png[width=400]
+image:images/kai2_sticks.png[width=400]
+image:images/kai2_spheres.png[width=400]
+image:images/kai2_surface.png[width=400]
 
 Take a closer look to compare the sticks and the ribbon representation. Can you identify what each line of the ribbon represents?
 
@@ -233,7 +233,7 @@ color n3, b < 50
 <2> But by command line we can set the same colours as in AlphaFold's standard representation.
 
 .Predicted KAI2 coloured by plDDT
-image:images/kai2_plddt.png[width=200]
+image:images/kai2_plddt.png[width=400]
 
 == Selecting and measuring contacts
 
@@ -264,7 +264,7 @@ distance model_0 and resid 3 and name CA, model_0 and resid 4 and name CA
 ----
 
 .Distances between neighbour alpha carbons
-image:images/ca_distances.png[width=200]
+image:images/ca_distances.png[width=400]
 
 Are the distances between neighbour alpha carbons as expected?
 There are many ways of selecting a region with PyMOL, using its own link:https://pymolwiki.org/index.php/Selection_Algebra[selection language]
@@ -274,7 +274,7 @@ There are many ways of selecting a region with PyMOL, using its own link:https:/
 Talking about potentials, the eletrostatic potential of a molecule can be calculated in PyMOL with the APBS plugin. APBS stands for Adaptative Poisson-Boltzmann Solver. It’s a program to numerically solve the rearrangement of charges of a molecule surrounded by a solvent with ions and dielectric properties.
 
 .Redistribution of charges of the solid in response to the charges of the solvent [source: wikipedia].
-image:images/PicturePB_wikipedia.jpg[]
+image:images/PicturePB_wikipedia.jpg[width=400]
 
 Let's calculate the distribution of the electrostatic potential at the surface of the predicted KAI2.
 [source,python]
