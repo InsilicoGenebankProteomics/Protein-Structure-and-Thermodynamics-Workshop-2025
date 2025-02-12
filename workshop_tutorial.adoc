@@ -206,7 +206,7 @@ image:images/pymol_object.png[width=200]
 
 Try out different representation modes with the show option (S) or the Presets... tab.
 
-.Different representations
+.Different representations: ribbon, cartoon, sticks, spheres, and surface
 image:images/kai2_ribbon.png[width=200]
 image:images/kai2_plddt.png[width=200]
 image:images/kai2_sticks.png[width=200]
